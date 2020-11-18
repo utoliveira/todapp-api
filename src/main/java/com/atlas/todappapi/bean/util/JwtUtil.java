@@ -30,6 +30,7 @@ public class JwtUtil {
 
     public boolean validateToken(String token, User user) {
         final String id= extractUserId(token);
+
         return user != null
                 && user.getId() != null
                 && user.getId().toString().equals(id)
