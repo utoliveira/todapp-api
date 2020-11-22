@@ -7,4 +7,7 @@ public class TodappRequestConsts {
 
     public static final int PASSWORD_MAX_LENGTH = 100;
     public static final int PASSWORD_MIN_LENGTH=1;
+
+    public static final int TODO_TEXT_MAX_LENGTH=255;
+    public static final int TODO_TEXT_MIN_LENGTH=1;
 }

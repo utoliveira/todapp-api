@@ -35,4 +35,8 @@ public class User {
     @Getter @Setter
     private List<Role> roles;
 
+    @OneToMany(mappedBy = "user")
+    @Getter @Setter
+    private List<Todo> todos;
+
 }

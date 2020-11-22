@@ -4,6 +4,7 @@ import com.atlas.todappapi.bean.service.AuthService;
 import com.atlas.todappapi.consts.TodappEndpoint;
 import com.atlas.todappapi.exception.PasswordDoesntMatchException;
 import com.atlas.todappapi.exception.UserNotFoundException;
+import com.atlas.todappapi.factory.ResponseFactory;
 import com.atlas.todappapi.model.request.AuthRequest;
 import com.atlas.todappapi.model.response.AuthResponse;
 import org.apache.coyote.Response;
@@ -14,6 +15,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
+import static com.atlas.todappapi.consts.code.OperationCode.PASSWORD_DOESNT_MATCH;
+import static com.atlas.todappapi.consts.code.OperationCode.USER_NOT_FOUND;
 
 @RestController
 @RequestMapping(TodappEndpoint.AUTH)
@@ -40,11 +44,11 @@ public class AuthController {
 
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity userNotFoundExceptionHandler(){
-        return ResponseEntity.notFound().build();
+        return ResponseFactory.getSimpleCodeResponse(HttpStatus.NOT_FOUND, USER_NOT_FOUND);
     }
 
     @ExceptionHandler(PasswordDoesntMatchException.class)
     public ResponseEntity passwordDoesntMatchExceptionHandler(){
-        return ResponseEntity.status(HttpStatus.PRECONDITION_FAILED).build();
+        return ResponseFactory.getSimpleCodeResponse(HttpStatus.PRECONDITION_FAILED, PASSWORD_DOESNT_MATCH);
     }
 }
