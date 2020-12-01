@@ -35,7 +35,7 @@ public class User {
     @Getter @Setter
     private List<Role> roles;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Getter @Setter
     private List<Todo> todos;
 

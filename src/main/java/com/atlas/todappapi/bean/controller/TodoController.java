@@ -15,11 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-
 import java.util.Collection;
-
-import static com.atlas.todappapi.consts.code.OperationCode.DONT_HAVE_PERMISSION_FOR_THAT;
-import static com.atlas.todappapi.factory.ResponseFactory.getSimpleCodeResponse;
 
 @RestController
 @RequestMapping(TodappEndpoint.TODO)
@@ -40,7 +36,7 @@ public class TodoController {
                             .map(field -> field.getField() + ": " + field.getDefaultMessage()));
         }
 
-        Todo todo = todoService.add(request, authentication);
+        Todo todo = todoService.add(request.getText(), authentication);
         return ResponseEntity.ok(todoMapper.toDTO(todo));
     }
 

@@ -86,7 +86,7 @@ public class TodoControllerTests {
 
         doReturn(todoReturned)
                 .when(todoService)
-                .add(any(TodoAddRequest.class), any(Authentication.class));
+                .add(anyString(), any(Authentication.class));
 
         mockMvc.perform(post(ADDTODO_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON)
