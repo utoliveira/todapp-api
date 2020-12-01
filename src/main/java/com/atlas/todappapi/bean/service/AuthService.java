@@ -2,11 +2,9 @@ package com.atlas.todappapi.bean.service;
 
 import com.atlas.todappapi.bean.util.JwtUtil;
 import com.atlas.todappapi.entity.User;
-import com.atlas.todappapi.exception.EmailAlreadyRegisteredException;
 import com.atlas.todappapi.exception.PasswordDoesntMatchException;
 import com.atlas.todappapi.exception.UserNotFoundException;
 import com.atlas.todappapi.model.request.AuthRequest;
-import com.atlas.todappapi.model.response.AuthResponse;
 import com.atlas.todappapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

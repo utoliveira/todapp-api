@@ -5,7 +5,6 @@ import com.atlas.todappapi.exception.EmailAlreadyRegisteredException;
 import com.atlas.todappapi.model.request.RegisterRequest;
 import com.atlas.todappapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
